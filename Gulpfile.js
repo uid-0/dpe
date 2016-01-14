@@ -13,14 +13,14 @@ var browserify = require('browserify')
 	, sass = require('gulp-sass')
 	, watch = require('gulp-watch');
 
-var licence = require("fs").readFileSync("./contrib/LICENCE")
+var license = require("fs").readFileSync("./LICENSE")
 var pkg = require("./package.json")
 
 var banner = [
 	pkg.name + " " + pkg.version + " " + pkg.codename,
 	"Copyright (C) " + new Date().getFullYear() + " " + pkg.author,
 	"",
-	licence
+	license
 ].join("\n").split("\n").map(function(i) { return " * " + i; }).join("\n");;
 
 gulp.task('browserify', function() {
