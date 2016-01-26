@@ -1,18 +1,9 @@
 import * as Enums from "../enums";
+import {Serializable} from "../serializable";
 
-export class Item {
+export class Item extends Serializable {
 	name: string
 	type: Enums.ItemType;
-	constructor(parent: Item) { }
-	serialize() {
-		return {
-			className: this.getClassName()
-		}
-	}
-	deserialize() {}
-	private getClassName() {
-    var funcNameRegex = /function (.{1,})\(/;
-    var results  = (funcNameRegex).exec(this["constructor"].toString());
-    return (results && results.length > 1) ? results[1] : "";
-	}
+	constructor(parent: Item) { super(); }
+
 }

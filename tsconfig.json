@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
-    "module": "commonjs"
-  }
+    "module": "commonjs",
+    "removeComments": true,
+    "sourceMap": true,
+    "outDir": "dist/"
+  },
+  "files": ["canvas.ts"]
 }
