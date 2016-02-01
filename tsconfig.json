@@ -3,7 +3,12 @@
     "module": "commonjs",
     "removeComments": true,
     "sourceMap": true,
-    "outDir": "dist/"
+    "outDir": "dist/",
+    "target": "es5",
+    "moduleResolution": "node"
   },
-  "files": ["canvas.ts"]
+	"filesGlob": [
+      "./**/*.ts",
+      "!./node_modules/**/*.ts"
+  ]
 }

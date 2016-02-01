@@ -1,6 +1,6 @@
 export class Location {
-	name: String,
-	state: any,
-	serialize:
+	name: String;
+	state: any;
+	serialize: () {};
 }
 

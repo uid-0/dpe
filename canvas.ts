@@ -3,4 +3,4 @@
 
 import {Game} from "./engine";
 
-new Game();
+const game = new Game();

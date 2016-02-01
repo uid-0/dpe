@@ -1,5 +1,5 @@
 import * as items from "./items";
-import {IItemFactory} from "./interfaces/IItemFactory.ts"
+import {IItemFactory} from "./interfaces/IItemFactory.ts";
 
 export class Inventory {
 	private factories: IItemFactory[] = [];
@@ -19,8 +19,8 @@ export class Inventory {
 	serialize() {
 		var data = [];
 		this.items.forEach(function(value) {
-			data.push(value.serialize())
-		})
+			data.push(value.serialize());
+		});
 		return data;
 	}
 	deserialize(data: any[]) {
@@ -28,25 +28,30 @@ export class Inventory {
 		data.forEach(function(record) {
 			var foundOne = false;
 			that.factories.forEach(function(factory) {
-				if (foundOne) return;
+				if (foundOne) {
+          return;
+        }
 				if (factory.factoryForType(record.className)) {
 					var item = factory.create(record.className);
 					item.deserialize(record);
 					foundOne = true;
 					that.add(item);
 				}
-			})
-			if (!foundOne) throw new Error("Cannot find factory for item " + record.className);
-		})
+			});
+			if (!foundOne) {
+        throw new Error("Cannot find factory for item " + record.className);
+      }
+		});
 	}
 }
 
 class VanillaItemFactory implements IItemFactory {
 	factoryForType(typeName: string): boolean {
-		if (items[typeName])
-			return true;
-		else
-			return false;
+		if (items[typeName]) {
+      return true;
+    } else {
+      return false;
+    }
 	}
 	create(typeName): items.Item {
 		return new items[typeName]();

@@ -1,3 +1,4 @@
+*.sublime-workspace
 dist/
 node_modules/
 
